@@ -1,5 +1,27 @@
 function hasTargetSum(array, target) {
   // Write your algorithm here
+
+  for(let i = 0; i < array.length; i++){
+    const remainder = target - array[i]
+
+    for(let j = 0; j < array.length; j++){
+
+      /*
+        ignore if it is self (for instance, target may be 10, and the
+        first value in the array is 5 and there is no other 5 in the
+        array. In this case, ignore the value
+      */
+      if(i === j){
+        continue
+      }
+
+      if(array[j] == remainder){
+        return true
+      }
+    }
+  }
+
+  return false
 }
 
 /* 
@@ -8,10 +30,18 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  
+  iterate through the array subtracting each value from target value
+  and trying to find if the remainder is present in the rest of the 
+  values
+    if the remainder is present, return true. Otherwise return false
 */
 
 /*
   Add written explanation of your solution here
+
+  For two numbers to add to a certain value, one must be a remainder
+  when the other is subtracted from the target value
 */
 
 // You can run `node index.js` to view these console logs
